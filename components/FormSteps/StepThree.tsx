@@ -68,7 +68,7 @@ const StepThree = () => {
               >
                 <button
                   className={clsx(
-                    "grid h-7 w-7 place-content-center text-[13px] rounded-full",
+                    "grid h-7 w-7 place-content-center text-[13px] font-bold  text-[#808085] rounded-full",
                     { "bg-[#266BCA]": urlStep === setup.step },
                     { "border border-[#E9E9EA]": urlStep !== setup.step }
                   )}
@@ -93,21 +93,24 @@ const StepThree = () => {
       </div>
 
       <>
-        <p className="text-[15px] font-medium">
+        <p className="text-[15px] font-medium  text-[#808085]">
           Enter the code we sent to{" "}
-          <span className="font-bold">(***) *** {lastThreeDigits}</span>
+          <span className="font-medium text-black">(***) *** {lastThreeDigits}</span>
         </p>
 
         <div className="w-full">
-          <label htmlFor="" className="text-[13px] font-bold pb-2">
+          <label
+            htmlFor=""
+            className="text-[13px] font-bold pb-2  text-[#444D4C]"
+          >
             Enter the 6-digit code *
           </label>
           <div
             onClick={() => setInputClick(true)}
-            className="px-4 relative py-6 w-full border-[0.1px] border-[#949494] rounded-[4px] text-[10px] "
+            className="px-4 relative py-6 w-full border-[2px] border-[#9F9E9D] rounded-[4px] text-[10px] "
           >
             {inputClick ? null : (
-              <span className="font-medium text-[18px] absolute z-[0] translate-x-[-50%] left-[50%] top-[50%] translate-y-[-65%]">
+              <span className="font-medium text-[18px] absolute z-[0] translate-x-[-50%] left-[50%] top-[50%] translate-y-[-65%] font-bold  text-[#808085]">
                 _ _ _ _ _ _
               </span>
             )}
@@ -117,7 +120,7 @@ const StepThree = () => {
               type="text"
               labelClassName=""
               // error={methods.formState.errors.number?.message as string}
-              inputClassName="w-full absolute left-3 right-0 top-0 bottom-0 border-none outline-none "
+              inputClassName="w-full absolute  left-3 right-0 top-0 bottom-0 border-none outline-none "
             />
             {/* <input
               type="text"
@@ -126,9 +129,9 @@ const StepThree = () => {
             /> */}
           </div>
         </div>
-        <p className="text-[14px] font-medium pb-2">
+        <p className="text-[14px] text-[#929493] font-medium pb-2">
           Didn't receive it?{" "}
-          <Link href="" className="text-[#5A80AD] font-bold">
+          <Link href="" className="text-[#5A80AD] font-medium underline">
             Resend my verification code
           </Link>
         </p>
@@ -138,10 +141,7 @@ const StepThree = () => {
           </p>
           <p className="text-[13px] font-medium ">
             Please begin the
-            <Link
-              href="/"
-              className=" ml-1 underline text-[#5A80AD] font-bold"
-            >
+            <Link href="/" className=" ml-1 underline text-[#5A80AD] font-medium">
               MFA recovery process.
             </Link>
           </p>
@@ -173,7 +173,7 @@ const StepThree = () => {
               }
             }
           }}
-          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-bold text-white"
+          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white"
         >
           Continue
         </button>

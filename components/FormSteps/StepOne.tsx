@@ -48,7 +48,7 @@ const StepOne = () => {
 
   return (
     <div className="mt-[-30px]  w-[340px] md:w-[450px] drop-shadow-custon bg-white rounded-[10px] py-8 px-8 top-[90px] ">
-      <h2 className="text-[#242C39] flex items-center justify-center w-full font-bold pb-4 text-[16px] md:text-[20px]">
+      <h2 className="text-[#414850] flex items-center justify-center w-full font-bold pb-4 text-[16px] md:text-[20px]">
         Sign in to ID.me
       </h2>
       <div
@@ -61,38 +61,40 @@ const StepOne = () => {
           </p>
           <Link
             href="/"
-            className="text-[13px]  underline text-[#5A80AD] font-bold"
+            className="text-[13px]  underline text-[#5A80AD] font-medium"
           >
             Create an ID.me account
           </Link>
         </div>
-        <p className="text-[13px] font-extralight pt-1">
+        <p className="text-[13px] font-medium pt-1">
           <span className="font-bold mr-1">*</span>Indicates a required field
         </p>
         <div>
           <InputField
             label="Email *"
             name="email"
+            placeHolder="Enter your email address"
             type="email"
             labelClassName="text-[12px] font-bold capitalize pb-2"
             error={methods.formState.errors.email?.message as string}
-            inputClassName="px-4 py-4 border-[0.1px] border-[#949494] rounded-[4px] w-full text-[14px]  "
+            inputClassName="px-4 py-4 border-[2px] border-[#9F9E9D] rounded-[4px] w-full text-[12px] text-black font-bold"
           />
         </div>
         <div>
           <InputField
             label="Password *"
             name="password"
+            placeHolder="Enter password"
             type="password"
             labelClassName="text-[12px] font-bold capitalize ] pt-6 pb-2"
             error={methods.formState.errors.password?.message as string}
-            inputClassName="px-4 py-4 border-[0.1px] border-[#949494] rounded-[4px] w-full text-[14px]  "
+            inputClassName="px-4 py-4 border-[2px] border-[#9F9E9D] rounded-[4px] w-full text-[12px] text-black font-bold"
           />
         </div>
         <div className="flex gap-2 pt-1 pb-4">
           <input type="checkbox" className="self-start mt-[2px]" />
           <div>
-            <p className="font-bold text-[11px]">Remember me</p>
+            <p className="font-bold text-[11px] text-[#51545A]">Remember me</p>
             <p className="text-[11px]">
               For your security, select only on your devices.
             </p>
@@ -130,7 +132,7 @@ const StepOne = () => {
             }
           }}
           disabled={isLoading}
-          className="text-xs cursor-pointer p-4 md:px-6 py-4  rounded-[4px] bg-[#266BCA] font-bold text-white"
+          className="text-xs cursor-pointer p-4 md:px-6 py-4  rounded-[4px] bg-[#266BCA] font-medium text-white"
         >
           {isLoading ? (
             <>
@@ -143,7 +145,7 @@ const StepOne = () => {
         </button>
         <Link
           href="/"
-          className="text-[14px] underline flex w-full items-center justify-center text-[#5A80AD] font-bold"
+          className="text-[14px] underline flex w-full items-center justify-center text-[#5A80AD] font-medium"
         >
           Forgot password
         </Link>
@@ -169,8 +171,8 @@ const StepOne = () => {
             <LinkedinIcon />
           </div>
         </div>
-        <div className="w-full cursor-pointer rounded-[3px] border-[0.1px] flex justify-center items-center border-[#C3C3C3] py-3">
-          <span className="text-[13px] text-[#5A80AD] font-bold">
+        <div className="w-full cursor-pointer rounded-[3px] border-[1.2px] flex justify-center items-center border-[#C3C3C3] py-3">
+          <span className="text-[13px] text-[#5A80AD] font-medium">
             View more options
           </span>
         </div>

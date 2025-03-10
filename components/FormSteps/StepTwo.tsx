@@ -63,7 +63,7 @@ const StepTwo = () => {
               >
                 <button
                   className={clsx(
-                    "grid h-7 w-7 place-content-center rounded-full text-[13px]",
+                    "grid h-7 w-7 place-content-center rounded-full text-[13px] font-bold  text-[#808085]",
                     { "bg-[#266BCA]": urlStep === setup.step },
                     { "border border-[#E9E9EA]": urlStep !== setup.step }
                   )}
@@ -88,7 +88,7 @@ const StepTwo = () => {
       </div>
 
       <>
-        <p className="text-[16px] font-bold">Receive a code by phone</p>
+        <p className="text-[16px] font-medium text-[#42474A]">Receive a code by phone</p>
         <div className="flex gap-2 w-full">
           <div
             onClick={() => setIndex(1)}
@@ -97,8 +97,11 @@ const StepTwo = () => {
               (index == 1 ? "border-[#5E7EB4]" : "border-[#A8A8A8]")
             }
           >
-            <img className="w-[50px]" src="/call-calling-svgrepo-com.png" />
-            <p className="text-[13px] font-bold">Text me</p>
+            <img
+              className="w-[40px]"
+              src="/text-message-phone-smartphone-svgrepo-com.png"
+            />
+            <p className="text-[13px] font-bold  text-[#808085]">Text me</p>
           </div>
           <div
             onClick={() => setIndex(0)}
@@ -107,14 +110,11 @@ const StepTwo = () => {
               (index == 0 ? "border-[#5E7EB4]" : "border-[#A8A8A8]")
             }
           >
-            <img
-              className="w-[40px]"
-              src="/text-message-phone-smartphone-svgrepo-com.png"
-            />
-            <p className="text-[13px] font-bold">Call me</p>
+            <img className="w-[50px]" src="/call-calling-svgrepo-com.png" />
+            <p className="text-[13px] font-bold text-[#808085]">Call me</p>
           </div>
         </div>
-        <p className="text-[14px] text-[#757E82]">
+        <p className="text-[14px] text-[#757E82] font-medium">
           You will receive a code at the following number
         </p>
         <div className="border-[2.7px] rounded-[4px] w-full border-[#5E7EB4] px-2 py-2 flex items-center gap-2">
@@ -128,7 +128,7 @@ const StepTwo = () => {
             labelClassName=""
             placeHolder="(***)***-*724"
             // error={methods.formState.errors.number?.message as string}
-            inputClassName="border-none w-[90%] outline-none font-bold text-black "
+            inputClassName="border-none w-[90%] outline-none font-medium text-black "
           />
           {/* <input
             type="text"
@@ -145,7 +145,7 @@ const StepTwo = () => {
           </p>
           <p className="text-[13px] font-medium ">
             Please begin the
-            <Link href="/" className="ml-1 underline text-[#5A80AD] font-bold">
+            <Link href="/" className="ml-1 underline text-[#5A80AD] font-medium">
               MFA recovery process.
             </Link>
           </p>
@@ -177,7 +177,7 @@ const StepTwo = () => {
               }
             }
           }}
-          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-bold text-white"
+          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white"
         >
           Continue
         </button>
