@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
 const StepFour = () => {
-  const [text, changeText] = useState("The Internal Revenue Service");
+  const [text, changeText] = useState("verify your details");
   const { push } = useRouter();
 
   useEffect(() => {

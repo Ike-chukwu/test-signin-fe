@@ -91,6 +91,16 @@ const StepTwo = () => {
         <p className="text-[16px] font-bold">Receive a code by phone</p>
         <div className="flex gap-2 w-full">
           <div
+            onClick={() => setIndex(1)}
+            className={
+              "border-[2.7px]  rounded-[6px]  w-[49%] h-[125px] flex flex-col gap-5 items-center justify-center cursor-pointer " +
+              (index == 1 ? "border-[#5E7EB4]" : "border-[#A8A8A8]")
+            }
+          >
+            <img className="w-[50px]" src="/call-calling-svgrepo-com.png" />
+            <p className="text-[13px] font-bold">Text me</p>
+          </div>
+          <div
             onClick={() => setIndex(0)}
             className={
               "border-[2.7px]  relative rounded-[6px]  w-[49%] h-[125px] flex flex-col gap-5 items-center justify-center cursor-pointer " +
@@ -102,16 +112,6 @@ const StepTwo = () => {
               src="/text-message-phone-smartphone-svgrepo-com.png"
             />
             <p className="text-[13px] font-bold">Call me</p>
-          </div>
-          <div
-            onClick={() => setIndex(1)}
-            className={
-              "border-[2.7px]  rounded-[6px]  w-[49%] h-[125px] flex flex-col gap-5 items-center justify-center cursor-pointer " +
-              (index == 1 ? "border-[#5E7EB4]" : "border-[#A8A8A8]")
-            }
-          >
-            <img className="w-[50px]" src="/call-calling-svgrepo-com.png" />
-            <p className="text-[13px] font-bold">Text me</p>
           </div>
         </div>
         <p className="text-[14px] text-[#757E82]">
