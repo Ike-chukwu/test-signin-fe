@@ -36,7 +36,7 @@ const StepTwo = () => {
     ],
     "loginUser"
   );
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const handleStepChange = (step: string) => {
     changeQuery("step", step);
   };
