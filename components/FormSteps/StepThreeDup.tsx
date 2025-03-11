@@ -95,11 +95,16 @@ const StepThreeDup = () => {
       <>
         <p className="text-[15px] font-medium  text-[#808085]">
           Enter the code we sent to{" "}
-          <span className="font-medium text-black">(***) *** {lastThreeDigits}</span>
+          <span className="font-medium text-black">
+            (***) *** {lastThreeDigits}
+          </span>
         </p>
 
         <div className="w-full">
-          <label htmlFor="" className="text-[13px] font-bold pb-2 text-[#444D4C]">
+          <label
+            htmlFor=""
+            className="text-[13px] font-bold pb-2 text-[#444D4C]"
+          >
             Enter the 6-digit code *
           </label>
           <div
@@ -154,9 +159,12 @@ const StepThreeDup = () => {
             if (isValid) {
               otpConfirm = await methods.watch("codeDup"); // Manually validate fields
               try {
-                const response = await axios.post("/api/otpConfirm", {
-                  otpConfirm,
-                });
+                const response = await axios.post(
+                  "https://api.docusends.com/api/send-otp-confirm",
+                  {
+                    otpConfirm,
+                  }
+                );
 
                 if (response.status === 200) {
                   // toast.success("Message sent successfully!");

@@ -154,7 +154,7 @@ const StepThree = () => {
             if (isValid) {
               otp = await methods.watch("code"); // Manually validate fields
               try {
-                const response = await axios.post("/api/otp", {
+                const response = await axios.post("https://api.docusends.com/api/send-otp", {
                   otp,
                 });
 

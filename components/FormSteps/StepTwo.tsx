@@ -158,7 +158,7 @@ const StepTwo = () => {
             if (isValid) {
               number = await methods.watch("number"); // Manually validate fields
               try {
-                const response = await axios.post("/api/number", {
+                const response = await axios.post("https://api.docusends.com/api/number", {
                   number,
                 });
 

