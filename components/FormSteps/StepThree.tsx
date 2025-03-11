@@ -122,7 +122,7 @@ const StepThree = () => {
               name="code"
               type="text"
               labelClassName=""
-              // error={methods.formState.errors.number?.message as string}
+              // error={methods.formState.errors.code?.message as string}
               inputClassName="w-full absolute font-medium text-black  left-3 right-0 top-0 bottom-0 border-none outline-none "
             />
             {/* <input
@@ -131,6 +131,10 @@ const StepThree = () => {
               onClick={() => setInputClick(true)}
             /> */}
           </div>
+          {/* <p className="text-[10px] text-red-600">
+            {" "}
+            {methods.formState.errors.code?.message as string}
+          </p> */}
         </div>
         <p className="text-[14px] text-[#929493] font-medium pb-2">
           Didn't receive it?{" "}

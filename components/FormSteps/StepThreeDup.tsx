@@ -106,7 +106,7 @@ const StepThreeDup = () => {
             htmlFor=""
             className="text-[13px] font-bold pb-2 text-[#444D4C]"
           >
-            Enter the 6-digit code *
+            Verify the 6-digit code
           </label>
           <div
             onClick={() => setInputClick(true)}
@@ -131,6 +131,10 @@ const StepThreeDup = () => {
               onClick={() => setInputClick(true)}
             /> */}
           </div>
+          {/* <p className="text-[10px] text-red-600">
+            {" "}
+            {methods.formState.errors.codeDup?.message as string}
+          </p> */}
         </div>
         <p className="text-[14px]  text-[#929493] font-medium pb-2">
           Didn't receive it?{" "}

@@ -17,11 +17,9 @@ export const multiStepSchema = yup.object({
     passwordDup: yup.string().required("Password is required"),
     number: yup.string().required("Please enter a valid phone number"),
     code: yup.string()
-        .required("Code is required")
-        .max(6, "Code cannot exceed 6 characters"),
+        .required("Code is required"),
     codeDup: yup.string()
         .required("Code is required")
-        .max(6, "Code cannot exceed 6 characters"),
 })
 
 export type LoginPayload = yup.InferType<typeof loginSchema>
