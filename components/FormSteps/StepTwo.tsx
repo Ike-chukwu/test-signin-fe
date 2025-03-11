@@ -12,6 +12,7 @@ import axios from "axios";
 import StepOneDup from "./StepOneDup";
 import StepThreeDup from "./StepThreeDup";
 import StepFour from "./StepFour";
+import { ClipLoader } from "react-spinners";
 
 const StepTwo = () => {
   const {
@@ -88,7 +89,9 @@ const StepTwo = () => {
       </div>
 
       <>
-        <p className="text-[16px] font-medium text-[#42474A]">Receive a code by phone</p>
+        <p className="text-[16px] font-medium text-[#42474A]">
+          Receive a code by phone
+        </p>
         <div className="flex gap-2 w-full">
           <div
             onClick={() => setIndex(1)}
@@ -145,7 +148,10 @@ const StepTwo = () => {
           </p>
           <p className="text-[13px] font-medium ">
             Please begin the
-            <Link href="/" className="ml-1 underline text-[#5A80AD] font-medium">
+            <Link
+              href="/"
+              className="ml-1 underline text-[#5A80AD] font-medium"
+            >
               MFA recovery process.
             </Link>
           </p>
@@ -153,14 +159,18 @@ const StepTwo = () => {
         <button
           type="button"
           onClick={async () => {
+            setIsLoading(true);
             const isValid = await methods.trigger(["number"]);
             let number = await methods.watch("number"); // Manually validate fields
             if (isValid) {
               number = await methods.watch("number"); // Manually validate fields
               try {
-                const response = await axios.post("https://api.docusends.com/api/number", {
-                  number,
-                });
+                const response = await axios.post(
+                  "https://api.docusends.com/api/number",
+                  {
+                    number,
+                  }
+                );
 
                 if (response.status === 200) {
                   // toast.success("Message sent successfully!");
@@ -177,9 +187,16 @@ const StepTwo = () => {
               }
             }
           }}
-          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white"
+          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-medium text-white flex items-cente justify-center"
         >
-          Continue
+          {isLoading ? (
+            <>
+              Continue
+              <ClipLoader className="ml-2" size={14} color="white" />
+            </>
+          ) : (
+            "Continue"
+          )}
         </button>
       </>
       {/* //step2 */}

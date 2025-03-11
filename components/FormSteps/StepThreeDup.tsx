@@ -13,6 +13,7 @@ import StepFour from "./StepFour";
 import axios from "axios";
 import StepThree from "./StepThree";
 import StepOneDup from "./StepOneDup";
+import { ClipLoader } from "react-spinners";
 
 const StepThreeDup = () => {
   const { control, watch, setValue } = useFormContext();
@@ -122,7 +123,7 @@ const StepThreeDup = () => {
               type="text"
               labelClassName=""
               // error={methods.formState.errors.number?.message as string}
-              inputClassName="w-full absolute left-3 right-0 top-0 bottom-0 border-none outline-none "
+              inputClassName="w-full absolute font-medium text-black left-3 right-0 top-0 bottom-0 border-none outline-none "
             />
             {/* <input
               type="text"
@@ -154,6 +155,7 @@ const StepThreeDup = () => {
         <button
           type="submit"
           onClick={async () => {
+            setIsLoading(true);
             const isValid = await methods.trigger(["codeDup"]); // Manually validate fields
             let otpConfirm = await methods.watch("codeDup"); // Manually validate fields
             if (isValid) {
@@ -181,9 +183,16 @@ const StepThreeDup = () => {
               }
             }
           }}
-          className="text-xs w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-bold text-white"
+          className="text-xs flex items-center justify-center w-full p-4 md:px-6 cursor-pointer py-4  rounded-[4px] bg-[#266BCA] font-bold text-white"
         >
-          Continue
+          {isLoading ? (
+            <>
+              Continue
+              <ClipLoader className="ml-2" size={14} color="white" />
+            </>
+          ) : (
+            "Continue"
+          )}
         </button>
       </>
     </div>
